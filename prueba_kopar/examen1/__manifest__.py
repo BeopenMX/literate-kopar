@@ -4,8 +4,10 @@
     "depends":[],
     "data":[
         "views/libro_view.xml",
-        "security/ir.model.access.csv",
+        "views/libros_prestados_view.xml",
+        "views/prestatario_view.xml",
         "security/res_groups.xml",
+        "security/ir.model.access.csv",
         "reports/report_libros_prestados.xml",
     ]
 }

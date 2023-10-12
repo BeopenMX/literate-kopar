@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="prestatario_view_tree" model="ir.ui.view">
+        <field name="name">prestatario_view_tree</field>
+        <field name="model">prestatario</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="email"/>
+                <field name="teléfono"/>
+            </tree>
+        </field>
+    </record>
+    <record id="prestatario_view_form" model="ir.ui.view">
+        <field name="name">prestatario_view_form</field>
+        <field name="model">prestatario</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="email"/>
+                            <field name="teléfono"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="prestatario_view_id" model="ir.actions.act_window">
+        <field name="name">prestatario_view</field>
+        <field name="res_model">prestatario</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- -->
+    <menuitem 
+        id="prestatario"
+        name="Prestatario"
+        parent="gestion_bibliotecas"
+        action="prestatario_view_id"
+    />
+</odoo>
