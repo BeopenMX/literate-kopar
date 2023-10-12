@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="libro_view_tree" model="ir.ui.view">
+        <field name="name">libro_view_tree</field>
+        <field name="model">libro</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="autor"/>
+                <field name="isbn"/>
+                <field name="fechapublicacion"/>
+            </tree>
+        </field>
+    </record>
+    <record id="libro_view_form" model="ir.ui.view">
+        <field name="name">libro_view_form</field>
+        <field name="model">libro</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="autor"/>
+                        <field name="isbn"/>
+                        <field name="fechapublicacion"/>
+                    </group>
+                    
+                </group>
+                
+            </form>
+        </field>
+    </record>
+    
+    <record id="libro_view" model="ir.actions.act_window">
+        <field name="name">libro_view</field>
+        <field name="res_model">libro</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- prestartario-->
+    <record id="prestatario_view_tree" model="ir.ui.view">
+        <field name="name">prestatario_view_tree</field>
+        <field name="model">prestatario</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="email"/>
+                <field name="teléfono"/>
+            </tree>
+        </field>
+    </record>
+    <record id="prestatario_view_form" model="ir.ui.view">
+        <field name="name">prestatario_view_form</field>
+        <field name="model">prestatario</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="nombre"/>
+                    <field name="email"/>
+                    <field name="teléfono"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    
+    <record id="prestatario_view_id" model="ir.actions.act_window">
+        <field name="name">prestatario_view</field>
+        <field name="res_model">prestatario</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- -->
+    <!-- libros prestados -->
+    <record id="libros_prestados_view_tree" model="ir.ui.view">
+        <field name="name">libros_prestados_view_tree</field>
+        <field name="model">libros.prestados</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="libro_id"/>
+                <field name="prestatario_id"/>
+                <field name="fecha_devolucion"/>
+            </tree>
+        </field>
+    </record>
+    <record id="libros_prestados_view_form" model="ir.ui.view">
+        <field name="name">libros_prestados_view_form</field>
+        <field name="model">libros.prestados</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="libro_id"/>
+                    <field name="prestatario_id"/>
+                    <field name="fecha_devolucion"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="libros_prestados_view" model="ir.actions.act_window">
+        <field name="name">libros_prestados_view</field>
+        <field name="res_model">libros.prestados</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- -->
+
+    <!-- report-->
+    <report
+        id = "action_report_libros_prestados"
+        model="libros.prestados"
+        string="Reporte Libros prestados"
+        report_type="qweb-pdf"
+        name="examen1.report_libros_prestados"
+        file="examen1.report_libros_prestados"
+    />
+
+    <menuitem
+        id="gestion_bibliotecas"
+        name="Gestión de Bibliotecas"
+    />
+    <menuitem 
+        id="libro"
+        name="Libro"
+        parent="gestion_bibliotecas"
+        action="libro_view"
+    />
+    <menuitem 
+        id="prestatario"
+        name="Prestatario"
+        parent="gestion_bibliotecas"
+        action="prestatario_view_id"
+    />
+    <menuitem 
+        id="libro_prestados"
+        name="libros prestados"
+        parent="gestion_bibliotecas"
+        action="libros_prestados_view"
+    />
+</odoo>

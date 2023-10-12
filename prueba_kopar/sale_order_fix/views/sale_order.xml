@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="sale_order_examen" model="ir.ui.view">
+        <field name="name">sale_order_examen</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="before">
+                <button
+                        name="action_button_comprobacion_calidad"
+                        string="Aprobar comprobación de calidad"
+                        type="object"
+                        groups="sale_order_fix.res_groups_button_confirm"
+                    />                
+            </xpath>
+            
+        </field>
+    </record>
+    
+</odoo>
