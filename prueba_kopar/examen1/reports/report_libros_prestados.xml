@@ -3,13 +3,44 @@
     <template id="report_libros_prestados">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <div class="page">
-                    <div>
-                        <H1>Lista de encabezado</H1>
+                <div t-attf-class="header" t-att-style="report_header_style">
+                    <div class="text-center" >
+                        <div >
+                            <h2 aling="center">Listado de Libros Prestados</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" >
+                    <table class="col-12 border-black" style="font-size:10px; text-transform: uppercase;">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="border: 1px solid;">Nombre del Libro</th>
+                                <th style="border: 1px solid;">Nombre del Prestatario</th>
+                                <th style="border: 1px solid;">Fecha de Devolucion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                            >
+                                <td style="border: 1px solid;" class="text-center">
+                                    <span t-field="o.libro_id" />
+                                </td>
+                                <td style="border: 1px solid;" class="text-center">
+                                    <span t-field="o.prestatario_id" />
+                                </td>
+                                <td style="border: 1px solid;" class="text-center">
+                                    <span t-field="o.fecha_devolucion" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div t-attf-class="footer o_standard_footer ">
+                    <div >
+                        Page: <span class="page" /> / <span class="topage" />
                     </div>
                 </div>
             </t>
         </t>
     </template>
-    
 </odoo>

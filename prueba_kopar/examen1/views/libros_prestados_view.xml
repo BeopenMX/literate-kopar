@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="libros_prestados_view_tree" model="ir.ui.view">
+        <field name="name">libros_prestados_view_tree</field>
+        <field name="model">libros.prestados</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="libro_id"/>
+                <field name="prestatario_id"/>
+                <field name="fecha_devolucion"/>
+            </tree>
+        </field>
+    </record>
+    <record id="libros_prestados_view_form" model="ir.ui.view">
+        <field name="name">libros_prestados_view_form</field>
+        <field name="model">libros.prestados</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="libro_id"/>
+                            <field name="prestatario_id"/>
+                            <field name="fecha_devolucion"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="libros_prestados_view" model="ir.actions.act_window">
+        <field name="name">libros_prestados_view</field>
+        <field name="res_model">libros.prestados</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <report
+        id = "action_report_libros_prestados"
+        model="libros.prestados"
+        string="Reporte Libros prestados"
+        report_type="qweb-pdf"
+        name="examen1.report_libros_prestados"
+        file="examen1.report_libros_prestados"
+    />
+    <menuitem 
+        id="libro_prestados"
+        name="libros prestados"
+        parent="gestion_bibliotecas"
+        action="libros_prestados_view"
+    />
+    
+</odoo>
